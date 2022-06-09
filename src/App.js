@@ -12,15 +12,42 @@ import { useState } from "react"
 export default function App() {
 
     const [cart, setCart] = useState([])
+    console.log(cart)
 
     function addToCart(record) {
-        setCart(prevCart => [...prevCart, record])
+        const recordAlreadyInCart = cart.filter(item => item.id === record.id).length > 0
+
+        if (recordAlreadyInCart) {
+            const recordIndex = cart.findIndex(item => item.id === record.id)
+            let currentCart = [...cart]
+            let updatedItem = {
+                ...currentCart[recordIndex],
+                count: currentCart[recordIndex].count + 1
+            }
+            currentCart[recordIndex] = updatedItem
+            setCart(currentCart)
+
+        } else {
+            setCart(prevCart => [...prevCart, {
+                ...record,
+                count: 1
+            }])
+        }
     }
 
-    function removeFromCart(key) {
-        setCart(prevCart => {
-            // TODO: Fix this
-        })
+    function removeFromCart(record) {
+        const recordIndex = cart.findIndex(item => item.id === record.id)
+        if(cart[recordIndex].count === 1) {
+            setCart(prevCart => prevCart.filter(item => item.id !== record.id))
+        } else {
+            let currentCart = [...cart]
+            let updatedItem = {
+                ...currentCart[recordIndex],
+                count: currentCart[recordIndex].count - 1
+            }
+            currentCart[recordIndex] = updatedItem
+            setCart(currentCart)
+        }
     }
 
     function clearCart() {
@@ -37,7 +64,7 @@ export default function App() {
                     <Link to="/contact" className="link">Contact</Link>
                     <Link to="/cart" className="link">
                         <img src={cartImage} alt="Cart" />
-                        {cart.length > 0 && <span class="badge">{cart.length}</span>}
+                        {cart.length > 0 && <span className="badge">{cart.reduce((total, cur) => total + cur.count, 0)}</span>}
                     </Link>
                 </div>
             </nav>
@@ -51,7 +78,7 @@ export default function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
-                        <Route path="/cart" element={<Cart />}></Route>
+                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>}></Route>
                     </Routes>
                 </main>
             </div>

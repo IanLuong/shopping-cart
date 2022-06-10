@@ -5,14 +5,18 @@ import Home from "./components/Home"
 import Products from "./components/Products"
 import Contact from "./components/Contact"
 import Cart from "./components/Cart"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 
 export default function App() {
 
     const [cart, setCart] = useState([])
-    console.log(cart)
+    const [cartTotal, setCartTotal] = useState(0)
+
+    useEffect(() => {
+        setCartTotal(cart.reduce((total, cur) => total + (cur.count * cur.price), 0).toFixed(2))
+    }, [cart])
 
     function addToCart(record) {
         const recordAlreadyInCart = cart.filter(item => item.id === record.id).length > 0
@@ -78,7 +82,7 @@ export default function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
-                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>}></Route>
+                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} cartTotal={cartTotal}/>}></Route>
                     </Routes>
                 </main>
             </div>

@@ -43,7 +43,8 @@ export default function App() {
             toast.success(`Added "${record.title}" to cart!`, { theme: "dark" })
         }
     }
-
+    
+    //decrements the count for an item
     function removeFromCart(record) {
         const recordIndex = cart.findIndex(item => item.id === record.id)
         if (cart[recordIndex].count === 1) {
@@ -57,6 +58,11 @@ export default function App() {
             currentCart[recordIndex] = updatedItem
             setCart(currentCart)
         }
+    }
+
+    //Removes item (used in the cart page) 
+    function removeItemFromCart(record) {
+        setCart(prevCart => prevCart.filter(item => item.id !== record.id))
     }
 
     function clearCart() {
@@ -87,7 +93,7 @@ export default function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
-                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} cartTotal={cartTotal} />}></Route>
+                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeItemFromCart={removeItemFromCart} cartTotal={cartTotal} clearCart={clearCart}/>}></Route>
                     </Routes>
                 </main>
             </div>

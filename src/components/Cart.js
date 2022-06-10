@@ -4,7 +4,7 @@ import CartItem from "./CartItem"
 export default function Cart(props) {
     const { cart, cartTotal } = props
 
-    const mappedCart = cart.map(item => <CartItem item={item} addToCart={props.addToCart} removeFromCart={props.removeFromCart} />)
+    const mappedCart = cart.map(item => <CartItem item={item} addToCart={props.addToCart} removeFromCart={props.removeFromCart} removeItemFromCart={props.removeItemFromCart} />)
 
     return (
         <div className="cart">
@@ -17,15 +17,16 @@ export default function Cart(props) {
                 </> :
                 <>
                     {mappedCart}
-                    <div class="cart-total">
+                    <div className="cart-total">
                         <p className="cart-total-text">Total</p>
                         <h4 className="cart-total-value">£{cartTotal}</h4>
                     </div>
-                    <div class="cart-buttons">
+                    <div className="cart-buttons">
+                        <button className="clear-button" onClick={props.clearCart}>Clear Cart</button>
                         <Link to="/products">
-                            <button>Continue Shopping</button>
+                            <button className="continue-button">Continue Shopping</button>
                         </Link>
-                        <button class="checkout-button">Checkout</button>
+                        <button className="checkout-button">Checkout</button>
                     </div>
                 </>}
         </div>

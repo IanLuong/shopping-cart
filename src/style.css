@@ -158,10 +158,22 @@ main {
 
 .add-cart-button:hover, .add-cart-button:focus,
 .cart-empty-button:hover, .cart-empty-button:focus,
-.cart-buttons button:hover, .cart-buttons button:focus  {
+.continue-button:hover, .continue-button:focus  {
     background-color: #FFD561;
     color: #000000;
 }
+
+.clear-button:hover, .clear-button:focus {
+    background-color: #ff6161;
+    color: #000000;
+
+}
+
+.checkout-button:hover, .checkout-button:focus {
+   background-color: #91ff61;
+   color: #000000;
+}
+
 
 .products-item-price {
     font-weight: 400;
@@ -267,7 +279,7 @@ main {
     align-items: center;
 }
 
-.checkout-button {
+.cart-buttons button{
     margin-left: 1em;
     font-weight: 700;
 }

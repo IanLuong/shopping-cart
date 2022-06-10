@@ -6,7 +6,8 @@ import Products from "./components/Products"
 import Contact from "./components/Contact"
 import Cart from "./components/Cart"
 import { useEffect, useState } from "react"
-
+import { toast, ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
         setCartTotal(cart.reduce((total, cur) => total + (cur.count * cur.price), 0).toFixed(2))
     }, [cart])
 
-    function addToCart(record) {
+    function addToCart(record, displayToast = false) {
         const recordAlreadyInCart = cart.filter(item => item.id === record.id).length > 0
 
         if (recordAlreadyInCart) {
@@ -37,11 +38,15 @@ export default function App() {
                 count: 1
             }])
         }
+
+        if (displayToast) {
+            toast.success(`Added "${record.title}" to cart!`, { theme: "dark" })
+        }
     }
 
     function removeFromCart(record) {
         const recordIndex = cart.findIndex(item => item.id === record.id)
-        if(cart[recordIndex].count === 1) {
+        if (cart[recordIndex].count === 1) {
             setCart(prevCart => prevCart.filter(item => item.id !== record.id))
         } else {
             let currentCart = [...cart]
@@ -82,13 +87,18 @@ export default function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
-                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} cartTotal={cartTotal}/>}></Route>
+                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} cartTotal={cartTotal} />}></Route>
                     </Routes>
                 </main>
             </div>
             <footer>
                 <p>Copyright © 2022 Ian Luong</p>
             </footer>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar={true}
+            />
         </>
     )
 }

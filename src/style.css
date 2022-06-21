@@ -279,7 +279,7 @@ main {
     align-items: center;
 }
 
-.cart-buttons button{
+.cart-buttons button {
     margin-left: 1em;
     font-weight: 700;
 }
@@ -288,4 +288,11 @@ main {
     padding: 1em;
     align-self: flex-end;
     display: flex;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
 }

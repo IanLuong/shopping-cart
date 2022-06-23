@@ -22,8 +22,6 @@ export default function Home() {
     ]
 
     useEffect(() => {
-        console.log(currentSlide)
-        console.log(homeScreens)
         setTimeout(() => {
             setCurrentSlide(slide => ((slide + 1) % 3))
         }, 5000)

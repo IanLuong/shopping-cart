@@ -77,7 +77,7 @@ export default function App() {
                     <Link to="/" className="link">Home</Link>
                     <Link to="/products" className="link">Products</Link>
                     <Link to="/contact" className="link">Contact</Link>
-                    <Link to="/cart" className="link cart">
+                    <Link to="/cart" className="link link-cart">
                         <img id="cart-image" src={cartImage} alt="Cart" />
                         {cart.length > 0 && <span className="badge">{cart.reduce((total, cur) => total + cur.count, 0)}</span>}
                     </Link>

@@ -208,6 +208,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: fadein 1s; 
 }
 
 .products-item {
@@ -232,6 +233,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: fadein 1s; 
 }
 
 .cart-total {

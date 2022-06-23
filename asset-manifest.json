@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.c7f5079e.css",
-    "main.js": "/shopping-cart/static/js/main.b57b777f.js",
+    "main.js": "/shopping-cart/static/js/main.1876c039.js",
     "static/media/mitchel-lensink-HPITX4JuuSo-unsplash.png": "/shopping-cart/static/media/mitchel-lensink-HPITX4JuuSo-unsplash.ef728ea03d3e4cb941c0.png",
     "static/media/karl-hornfeldt-L5gqyA9NLAM-unsplash.png": "/shopping-cart/static/media/karl-hornfeldt-L5gqyA9NLAM-unsplash.946630c6f8b85430eaaf.png",
     "static/media/julio-rionaldo-C0oRQ_8SxBY-unsplash.jpg": "/shopping-cart/static/media/julio-rionaldo-C0oRQ_8SxBY-unsplash.2cc9820dc1a9dc8681c3.jpg",
     "static/media/shopping-cart-outline-svgrepo-com.svg": "/shopping-cart/static/media/shopping-cart-outline-svgrepo-com.76c7e96e2483ebc8b7066cd6fa665175.svg",
     "index.html": "/shopping-cart/index.html",
     "main.c7f5079e.css.map": "/shopping-cart/static/css/main.c7f5079e.css.map",
-    "main.b57b777f.js.map": "/shopping-cart/static/js/main.b57b777f.js.map"
+    "main.1876c039.js.map": "/shopping-cart/static/js/main.1876c039.js.map"
   },
   "entrypoints": [
     "static/css/main.c7f5079e.css",
-    "static/js/main.b57b777f.js"
+    "static/js/main.1876c039.js"
   ]
 }

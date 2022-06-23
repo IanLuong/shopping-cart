@@ -19,6 +19,17 @@
     margin: auto auto;
 }
 
+/* Animation */
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 /* Typography */
 
 .logo {
@@ -79,6 +90,7 @@ nav a:hover, nav a:focus {
 
 .products-item-image, .carousel-item img, .cart-item-image {
     max-width: 100%;
+    object-fit: cover;
 }
 
 .cart-item-image {
@@ -174,6 +186,20 @@ footer {
     color: #FFFFFF;
     text-align: center;
     padding: .5em;
+}
+
+/* Home Page */
+.carousel-item {
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    animation: fadein 1s; 
+}
+
+.hidden {
+    display: none;
 }
 
 /* Products Page */

@@ -19,7 +19,7 @@ export default function App() {
         setCartTotal(cart.reduce((total, cur) => total + (cur.count * cur.price), 0).toFixed(2))
     }, [cart])
 
-    function addToCart(record, displayToast = false) {
+    function addToCart(record, quantity = 1, displayToast = false) {
         const recordAlreadyInCart = cart.filter(item => item.id === record.id).length > 0
 
         if (recordAlreadyInCart) {
@@ -27,7 +27,7 @@ export default function App() {
             let currentCart = [...cart]
             let updatedItem = {
                 ...currentCart[recordIndex],
-                count: currentCart[recordIndex].count + 1
+                count: parseInt(currentCart[recordIndex].count) + parseInt(quantity)
             }
             currentCart[recordIndex] = updatedItem
             setCart(currentCart)
@@ -35,15 +35,15 @@ export default function App() {
         } else {
             setCart(prevCart => [...prevCart, {
                 ...record,
-                count: 1
+                count: parseInt(quantity)
             }])
         }
 
         if (displayToast) {
-            toast.success(`Added "${record.title}" to cart!`, { theme: "dark" })
+            toast.success(`Added ${quantity} "${record.title}" to cart!`, { theme: "dark" })
         }
     }
-    
+
     //decrements the count for an item
     function removeFromCart(record) {
         const recordIndex = cart.findIndex(item => item.id === record.id)
@@ -93,7 +93,7 @@ export default function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
-                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeItemFromCart={removeItemFromCart} cartTotal={cartTotal} clearCart={clearCart}/>}></Route>
+                        <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeItemFromCart={removeItemFromCart} cartTotal={cartTotal} clearCart={clearCart} />}></Route>
                     </Routes>
                 </main>
             </div>

@@ -113,7 +113,7 @@ nav a:hover, nav a:focus {
     cursor: pointer;
 }
 
-.cart-item-quantity button, .cart-button {
+.cart-button {
     background-color: #000000;
     color: #FFFFFF;
     border: none;
@@ -123,7 +123,7 @@ nav a:hover, nav a:focus {
 }
 
 .add-cart-button:hover, .add-cart-button:focus,
-.cart-item-quantity button:hover, .cart-item-quantity button:focus,
+.cart-button:hover, .cart-button:focus,
 .cart-button:hover, .cart-button:focus {
     background-color: #ffd561;
     color: #000000;
@@ -243,6 +243,28 @@ footer {
     justify-content: space-between;
 }
 
+.products-add {
+    display: flex;
+}
+
+.products-quantity-buttons {
+    display: flex;
+    align-items: center;
+}
+
+
+/* TODO: Rename some buttons (add-cart) and divs (quantity) to fix confusion */
+/* TODO: Re-organise the CSS */
+
+.quantity {
+    text-align: center;
+    border: 2px solid #000000;
+    width: 4em;
+    font-weight: 600;
+    padding: .35em;
+
+}
+
 /* Cart Page */
 
 .cart {
@@ -264,7 +286,7 @@ footer {
 }
 
 .cart-button {
-    margin-left: .5em;
+    margin: 0 .5em;
 }
 
 /* Cart Item */
@@ -285,6 +307,7 @@ footer {
 
 .cart-item-quantity {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 

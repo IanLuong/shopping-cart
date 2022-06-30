@@ -12,10 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
     const [cartTotal, setCartTotal] = useState(0)
 
     useEffect(() => {
+        const stringifiedCart = JSON.stringify(cart)
+        localStorage.setItem("cart", stringifiedCart)
         setCartTotal(cart.reduce((total, cur) => total + (cur.count * cur.price), 0).toFixed(2))
     }, [cart])
 

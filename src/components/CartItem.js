@@ -13,7 +13,7 @@ export default function CartItem(props) {
                 <div className="cart-item-quantity">
                     <button onClick={() => props.removeFromCart(item)} className="cart-button">-</button>
                     <p className="quantity">{item.count}</p>
-                    <button onClick={() => props.addToCart(item)} className="cart-button">+</button>
+                    <button onClick={() => props.addToCart(item)} className="cart-button cart-button-right">+</button>
                 </div>
                 <p className="cart-item-remove" onClick={() => props.removeItemFromCart(item)}>Remove</p>
             </div>

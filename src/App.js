@@ -3,6 +3,7 @@ import "./style.css"
 import cartImage from "./img/shopping-cart-outline-svgrepo-com.svg"
 import Home from "./components/Home"
 import Products from "./components/Products"
+import ProductInfo from "./components/ProductInfo"
 import Contact from "./components/Contact"
 import Cart from "./components/Cart"
 import { useEffect, useState } from "react"
@@ -94,6 +95,7 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/products" element={<Products addToCart={addToCart} />}></Route>
+                        <Route path="/products/:productId" element={<ProductInfo addToCart={addToCart}/>}></Route>
                         <Route path="/contact" element={<Contact />}></Route>
                         <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeItemFromCart={removeItemFromCart} cartTotal={cartTotal} clearCart={clearCart} />}></Route>
                     </Routes>

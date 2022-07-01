@@ -34,7 +34,7 @@ export default function ProductInfo(props) {
                     <div class="products-quantity-buttons">
                         <button className="cart-button cart-button-left" onClick={() => setQuantity(quantity => quantity > 1 ? quantity - 1 : 1)}>-</button>
                         <input className="quantity" type="number" value={quantity} onChange={handleChange} min={1} />
-                        <button className="cart-button" onClick={() => setQuantity(quantity => quantity + 1)}>+</button>
+                        <button className="cart-button" onClick={() => setQuantity(quantity => parseInt(quantity) + 1)}>+</button>
                     </div>
                     <button className="add-cart-button" onClick={() => props.addToCart(product, quantity, true)}>Add to Cart</button>
                 </div>

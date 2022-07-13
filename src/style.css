@@ -103,6 +103,8 @@ nav a:hover, nav a:focus {
 
 /* Buttons */
 
+/* TODO: Add show-tracklist-button styling */
+
 .add-cart-button {
     background-color: #000000;
     color: #FFFFFF;
@@ -303,6 +305,29 @@ footer {
 
 .products-item-description {
     max-width: 600px;
+}
+
+@media (min-width: 1500px) {
+    .product-info-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+
+    .product-info {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    /* TODO: Rename product-info and product-info-text */
+
+    .product-info-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: flex-start;
+    }
+
 }
 
 /* Cart Page */

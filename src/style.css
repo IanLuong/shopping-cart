@@ -19,6 +19,17 @@
     margin: auto;
 }
 
+.visually-hidden {
+    border-width: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+  }
+
 /* Animation */
 @keyframes fadein {
     from {
@@ -144,6 +155,10 @@ nav a:hover, nav a:focus {
 .cart-button.cart-button-right {
     margin-right: 0;
 }
+
+/* Forms */
+
+
 
 /* nav */
 
@@ -303,6 +318,25 @@ footer {
 
 .products-item-description {
     max-width: 600px;
+}
+
+/* Contact Page */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-container, .contact-other{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-form {
+    
 }
 
 /* Cart Page */

@@ -39,8 +39,8 @@ export default function ProductInfo(props) {
                         </div>
                         <button className="add-cart-button" onClick={() => props.addToCart(product, quantity, true)}>Add to Cart</button>
                     </div>
-                    {/* TODO: Add event listener to button below */}
-                    {product.tracklist && <button className="show-tracklist-button">Show Tracklist</button>}
+                    {/* TODO: Add tracklist functionality */}
+                    {/* {product.tracklist && <button className="show-tracklist-button">Show Tracklist</button>} */}
                     <p className="products-item-description">{product.description.replace("\n", "<bo>")}</p>
                 </div>
             </div>

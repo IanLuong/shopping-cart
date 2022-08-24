@@ -21,26 +21,28 @@ export default function ProductInfo(props) {
 
             <div className="product-info">
                 <div>
-                    <img className="products-item-image" src={product.image} />
+                    <img className="products-item-image" src={product.image} alt={`${product.title} cover`}/>
                 </div>
-                <div>
+                <div className="product-info-text">
                     <div>
-                        <h3 className="products-item-text title">{product.title}</h3>
-                        <h4 className="products-item-text artist">{product.artist}</h4>
-                        <p className="products-item-price">£{product.price}</p>
+                        <div>
+                            <h3 className="products-item-text title">{product.title}</h3>
+                            <h4 className="products-item-text artist">{product.artist}</h4>
+                            <p className="products-item-price">£{product.price}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="products-add">
-                    <div class="products-quantity-buttons">
-                        <button className="cart-button cart-button-left" onClick={() => setQuantity(quantity => quantity > 1 ? quantity - 1 : 1)}>-</button>
-                        <input className="quantity" type="number" value={quantity} onChange={handleChange} min={1} />
-                        <button className="cart-button" onClick={() => setQuantity(quantity => parseInt(quantity) + 1)}>+</button>
+                    <div className="products-add">
+                        <div class="products-quantity-buttons">
+                            <button className="cart-button cart-button-left" onClick={() => setQuantity(quantity => quantity > 1 ? quantity - 1 : 1)}>-</button>
+                            <input className="quantity" type="number" value={quantity} onChange={handleChange} min={1} />
+                            <button className="cart-button" onClick={() => setQuantity(quantity => parseInt(quantity) + 1)}>+</button>
+                        </div>
+                        <button className="add-cart-button" onClick={() => props.addToCart(product, quantity, true)}>Add to Cart</button>
                     </div>
-                    <button className="add-cart-button" onClick={() => props.addToCart(product, quantity, true)}>Add to Cart</button>
+                    {/* TODO: Add event listener to button below */}
+                    {product.tracklist && <button className="show-tracklist-button">Show Tracklist</button>}
+                    <p className="products-item-description">{product.description.replace("\n", "<bo>")}</p>
                 </div>
-                {/* TODO: Add event listener to button below */}
-                {product.tracklist && <button className="show-tracklist-button">Show Tracklist</button>}
-                <p className="products-item-description">{product.description.replace("\n", "<bo>")}</p>
             </div>
         </div>
     )

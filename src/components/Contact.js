@@ -1,5 +1,10 @@
+import ContactBar from "./ContactBar"
+
 export default function Contact() {
-    return (
-        <h1>Contact Page</h1>
-    )
+  return (
+    <section className="contact">
+      <h1>Let's chat</h1>
+      <ContactBar />
+    </section>
+  )
 }
